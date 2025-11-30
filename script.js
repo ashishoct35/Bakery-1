@@ -242,6 +242,27 @@ window.openLightbox = function (src, caption) {
 }
 
 
+function setupPageTransitions() {
+    const overlay = document.createElement('div');
+    overlay.className = 'page-transition';
+    document.body.appendChild(overlay);
+
+    document.querySelectorAll('a').forEach(link => {
+        if (link.hostname === window.location.hostname) {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+
+                overlay.classList.add('active');
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 600);
+            });
+        }
+    });
+}
+
 // Image Error Handling
 window.addEventListener('error', function (e) {
     if (e.target.tagName === 'IMG') {
