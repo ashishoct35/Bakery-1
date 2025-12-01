@@ -8,10 +8,10 @@
     },
     "outlets": [
         {
-            "id": "yala",
-            "name": "Crave Yala - Bakhundol",
+            "id": "Gwarko",
+            "name": "The noodles Factory - Gwarko",
             "is_featured": true,
-            "hero_title": "Fresh Cakes, Coffee & Happiness",
+            "hero_title": "Fresh Noodles, Keema & Happiness",
             "hero_subtitle": "A cozy bakery serving cakes, pastries and coffee in a peaceful corner of Lalitpur.",
             "hero_image": "images/panda.jpg.png",
             "cover_image": "images/yala-cover.jpg",
