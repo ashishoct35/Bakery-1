@@ -219,6 +219,70 @@ window.filterMenu = function (slug) {
     });
 }
 
+function loadContactPage(content) {
+    const contactInfo = document.getElementById('contact-info');
+    const contactMap = document.getElementById('contact-map');
+
+    if (contactInfo) {
+        contactInfo.innerHTML = `
+            <h3 style="margin-bottom: 2rem; font-size: 1.8rem;">Reach Out to Us</h3>
+            <div style="display: grid; gap: 1.5rem;">
+                ${content.outlets.map(outlet => `
+                    <div class="contact-outlet-card">
+                        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.3rem;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--accent-color); margin-right: 0.5rem;"></i>
+                            ${outlet.name}
+                        </h4>
+                        <p style="margin: 0.5rem 0; color: var(--light-text);">
+                            <i class="fas fa-location-dot" style="width: 20px; margin-right: 0.5rem;"></i>
+                            ${outlet.address}
+                        </p>
+                        <p style="margin: 0.5rem 0;">
+                            <i class="fas fa-phone" style="width: 20px; margin-right: 0.5rem; color: var(--primary-color);"></i>
+                            ${outlet.phone}
+                        </p>
+                        <a href="https://wa.me/${outlet.whatsapp.replace(/\D/g, '')}" 
+                           target="_blank" 
+                           class="whatsapp-button"
+                           style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: white; padding: 0.75rem 1.5rem; border-radius: 30px; text-decoration: none; margin-top: 1rem; font-weight: 600; transition: transform 0.3s;">
+                            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                `).join('')}
+            </div>
+            
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Send us a Message</h3>
+                <form onsubmit="event.preventDefault(); alert('Thank you! We will get back to you soon.');" style="display: grid; gap: 1rem;">
+                    <input type="text" placeholder="Your Name" required style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: var(--font-body);">
+                    <input type="email" placeholder="Your Email" required style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: var(--font-body);">
+                    <textarea rows="5" placeholder="Your Message" required style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: var(--font-body); resize: vertical;"></textarea>
+                    <button type="submit" style="background: var(--primary-color); color: white; border: none; padding: 1rem 2rem; border-radius: 30px; cursor: pointer; font-weight: 600; justify-self: start;">Send Message</button>
+                </form>
+            </div>
+        `;
+    }
+
+    if (contactMap) {
+        const featuredOutlet = content.outlets.find(o => o.is_featured) || content.outlets[0];
+        contactMap.innerHTML = `
+            <div style="position: sticky; top: 100px;">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Find Us</h3>
+                ${featuredOutlet.google_map_embed.startsWith('<iframe') ? featuredOutlet.google_map_embed : `<iframe src="${featuredOutlet.google_map_embed}" width="100%" height="450" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>`}
+                <div style="margin-top: 2rem; background: #f9f9f9; padding: 1.5rem; border-radius: 12px;">
+                    <h4 style="margin-bottom: 1rem; color: var(--primary-color);">Opening Hours</h4>
+                    ${featuredOutlet.opening_hours ? featuredOutlet.opening_hours.slice(0, 1).map(oh => `
+                        <p style="margin: 0.5rem 0; color: var(--light-text);">
+                            <strong>Daily:</strong> ${oh.hours}
+                        </p>
+                    `).join('') : '<p>Open Daily</p>'}
+                </div>
+            </div>
+        `;
+    }
+}
+
 function loadLocationsPage(content) {
     const list = document.getElementById('outlets-list');
     if (!list) return;
