@@ -283,23 +283,6 @@ section {
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.8rem;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-}
-
-/* Footer */
-footer {
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 4rem 5%;
-    text-align: center;
-}
-
-.footer-content h3 {
-    color: var(--accent-color);
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
 }
 
 .social-links {
