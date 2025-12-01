@@ -2,7 +2,7 @@
     "site_title": "The Noodles Factory",
     "brand": {
         "logo": "images/logotnf.png",
-        "tagline": "Fresh Noodles, Keema & Happiness",
+        "tagline": "Authentic Noodles & Rich Broth",
         "primary_color": "#5D4037",
         "accent_color": "#D4AF37"
     },
@@ -12,7 +12,7 @@
             "name": "The noodles Factory - Gwarko",
             "is_featured": true,
             "hero_title": "Fresh Noodles, Keema & Happiness",
-            "hero_subtitle": "A cozy bakery serving cakes, pastries and coffee in a peaceful corner of Lalitpur.",
+            "hero_subtitle": "Hand-pulled noodles and slow-cooked broth in the heart of Lalitpur.",
             "hero_image": "images/panda.jpg.png",
             "cover_image": "images/yala-cover.jpg",
             "address": "Bakhundol, Lalitpur",
@@ -118,24 +118,24 @@
     ],
     "specials": [
         {
-            "name": "Signature Tiramisu",
+            "name": "Signature Tonkotsu Ramen",
             "price": "NPR 320",
             "badge": "Bestseller",
             "image": "images/special-tiramisu.jpg",
             "description": "Creamy, coffee-soaked classic our regulars swear by."
         },
         {
-            "name": "Oreo Milkshake",
+            "name": "Spicy Dan Dan Noodles",
             "price": "NPR 280",
             "badge": "Customer Favorite",
             "image": "images/special-oreo.jpg",
             "description": "Rich, thick and perfectly balanced – not too sweet."
         },
         {
-            "name": "Matcha Latte",
+            "name": "Chicken Thukpa",
             "price": "NPR 300",
             "badge": "New",
-            "image": "images/special-matcha.jpg",
+            "image": "images/panda.png",
             "description": "Premium Japanese matcha with steamed milk."
         }
     ],
